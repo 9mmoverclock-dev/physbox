@@ -1,0 +1,288 @@
+{
+  "__guid": "261edd1c-808b-4d9f-9063-cdd4f578c5f1",
+  "GameObjects": [
+    {
+      "__guid": "46801382-89d4-4ae9-8858-7fbd90588ca0",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "Map - zonical.physbox_street",
+      "Position": "0,0,0",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "MapInformationComponent",
+          "__guid": "dbe5d242-db69-45a0-95b5-3cc8220fec15",
+          "__enabled": true,
+          "Image": null,
+          "IsVisibleInMenu": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OverrideDefaultSpawnpoints": false,
+          "PackageIdent": "zonical.physbox_street",
+          "SupportedGamemodes": [
+            "Deathmatch"
+          ]
+        },
+        {
+          "__type": "Sandbox.SceneInformation",
+          "__guid": "6929ecb7-7161-4173-baf2-0af9a7712a1c",
+          "__enabled": true,
+          "Author": "ZoNiCaL",
+          "Changes": null,
+          "Description": null,
+          "Group": null,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "SceneTags": "",
+          "Title": "Street",
+          "Version": null
+        },
+        {
+          "__type": "Sandbox.MapInstance",
+          "__guid": "836e7373-004b-4fed-9d14-c06ff4b8cbe2",
+          "__enabled": true,
+          "__version": 1,
+          "EnableCollision": true,
+          "MapName": "zonical.physbox_street",
+          "NoOrigin": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnMapLoaded": null,
+          "OnMapUnloaded": null,
+          "UseMapFromLaunch": false
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "f230da5b-3cf6-42e6-9b58-d903945a7c32",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "Spectator Spawnpoint",
+      "Position": "-256,704,384",
+      "Rotation": "0,0.1305262,0,0.9914449",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "PhysboxSpectatorSpawnpoint",
+          "__guid": "795eb45d-8312-4fe6-aa55-d5c62ed12553",
+          "__enabled": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "bc2b4d91-f171-4b3e-a094-9e5d79a99608",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "Spectator Spawnpoint (3)",
+      "Position": "-256,-256,384",
+      "Rotation": "-0.0499502,0.1205905,0.3794095,0.9159757",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "PhysboxSpectatorSpawnpoint",
+          "__guid": "f52435c5-4865-47bc-beb4-68955797d360",
+          "__enabled": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "99dfaa0e-67d2-4b2b-b463-e7fd3243b350",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "Spectator Spawnpoint (5)",
+      "Position": "-256,1664,384",
+      "Rotation": "0.0499502,0.1205905,-0.3794095,0.9159757",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "PhysboxSpectatorSpawnpoint",
+          "__guid": "3ef58787-328d-48aa-9eb3-6009a2b71cf1",
+          "__enabled": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "dc068e99-39cb-4e19-9d17-8c3e0ca8d95d",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "Spectator Spawnpoint (1)",
+      "Position": "256,704,384",
+      "Rotation": "0.1305262,0.00000002541439,-0.9914449,0.0000001930414",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "PhysboxSpectatorSpawnpoint",
+          "__guid": "897379b5-4874-464b-a9e3-65c6a54ff2d6",
+          "__enabled": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "2333b5a0-8005-4bc1-b255-4cc50c083ef8",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "Spectator Spawnpoint (2)",
+      "Position": "256,-256,384",
+      "Rotation": "0.1205905,-0.04995018,-0.9159757,-0.3794093",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "PhysboxSpectatorSpawnpoint",
+          "__guid": "0f649b2a-0c1d-4391-9f5c-d6d0d035372b",
+          "__enabled": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "041d3917-b664-43de-a596-ad2864be3c23",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "Spectator Spawnpoint (4)",
+      "Position": "256,1664,384",
+      "Rotation": "0.1205905,0.04995023,-0.9159756,0.3794097",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "PhysboxSpectatorSpawnpoint",
+          "__guid": "c655a77f-b2c9-40c8-8002-72231ab8118a",
+          "__enabled": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        }
+      ],
+      "Children": []
+    }
+  ],
+  "SceneProperties": {
+    "NetworkInterpolation": true,
+    "TimeScale": 1,
+    "WantsSystemScene": true,
+    "Metadata": {
+      "Image": null,
+      "IsVisibleInMenu": "True",
+      "GameModes": "Deathmatch",
+      "PackageIdent": "zonical.physbox_street",
+      "Title": "Street",
+      "Author": "ZoNiCaL"
+    },
+    "NavMesh": {
+      "Enabled": true,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "ResourceVersion": 3,
+  "Title": "Street",
+  "Description": null,
+  "__references": [],
+  "__version": 3
+}

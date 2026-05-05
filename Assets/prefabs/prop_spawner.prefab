@@ -1,0 +1,45 @@
+{
+  "RootObject": {
+    "__guid": "5a8ff602-e953-429b-b006-82d2128c9a5b",
+    "__version": 1,
+    "Flags": 0,
+    "Name": "prop_spawner",
+    "Position": "0,0,0",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
+    "Tags": "",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkInterpolation": true,
+    "NetworkOrphaned": 0,
+    "OwnerTransfer": 1,
+    "Components": [
+      {
+        "__type": "PropSpawnerComponent",
+        "__guid": "cedbe0c7-1cda-4436-a194-f2b435eccc3d",
+        "__enabled": true,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Prop": "props/crate.pdef",
+        "Sleeping": false,
+        "SpawnImmediately": true,
+        "TraceDirection": "0,0,-1",
+        "TraceDistance": 200,
+        "TraceOffset": "0,0,0",
+        "TraceRadius": 64
+      }
+    ],
+    "Children": []
+  },
+  "ResourceVersion": 2,
+  "ShowInMenu": true,
+  "MenuPath": "Physbox/Prop Spawner",
+  "MenuIcon": "add_location",
+  "DontBreakAsTemplate": false,
+  "__references": [],
+  "__version": 2
+}
