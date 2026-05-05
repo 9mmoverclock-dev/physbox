@@ -1,0 +1,69 @@
+﻿@using Sandbox;
+@using Sandbox.UI;
+@using Sandbox.Network;
+@using System;
+@inherits Panel
+@namespace Physbox
+
+<root>
+	<div class="background">
+		<div class="text" style="color: @( AttackerTeamColor?.Hex ?? Color.White.Hex )">
+			@if ( Info.Attacker is not null )
+			{
+				@Info.Attacker.Name
+			}
+			else
+			{
+				@( "🌎" )
+			}
+		</div>
+
+		@if ( Info.Prop is not null )
+		{
+			<img Texture=@Info.Prop.KillfeedIcon/>
+		}
+		else
+		{
+			<div class="text">killed</div>
+		}
+
+		<div class="text" style="color: @( VictimTeamColor?.Hex ?? Color.White.Hex )">
+			@Info.Victim.Name
+		</div>
+	</div>
+</root>
+
+@code
+{
+	public PhysboxDamageInfo Info;
+
+	// Cached values.
+	Color? AttackerTeamColor = null;
+	Color? VictimTeamColor = null;
+
+	public override void Tick()
+	{
+		if ( AttackerTeamColor is null && Info.Attacker is not null )
+		{
+			AttackerTeamColor = !GameLogicComponent.UseTeams
+				? Color.White.Hex
+				: PhysboxUtilities.GetTeamColor( Info.Attacker.Team ).Lighten( 0.25f ).Hex;
+
+			StateHasChanged();
+		}
+
+		if ( VictimTeamColor is null && Info.Victim is not null )
+		{
+			VictimTeamColor = !GameLogicComponent.UseTeams
+				? Color.White.Hex
+				: PhysboxUtilities.GetTeamColor( Info.Victim.Team ).Lighten( 0.25f ).Hex;
+
+			StateHasChanged();
+		}
+	}
+
+	protected override int BuildHash()
+	{
+		return HashCode.Combine( Info, AttackerTeamColor, VictimTeamColor );
+	}
+}

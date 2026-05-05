@@ -1,0 +1,44 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using System;
+@inherits Panel
+@namespace Physbox
+
+<root>
+	<div style="flex-direction:column; margin: auto;">
+		<div class="text title">WINNER</div>
+		@if ( WinningPlayer is not null )
+		{
+			<img src="@( PhysboxUtilities.GetSourceForPlayerIcon( WinningPlayer ) )"/>
+		}
+		else if ( WinningTeam != Team.None )
+		{
+			<div class="winningTeamIcon" style="background-color: @PhysboxUtilities.GetTeamColor( WinningTeam ).Hex"/>
+		}
+		<div class="text player">
+			@if ( WinningPlayer is not null )
+			{
+				@( WinningPlayer.Name )
+			}
+			else if ( WinningTeam != Team.None )
+			{
+				@( WinningTeam.ToString() + " Team" )
+			}
+		</div>
+	</div>
+
+</root>
+
+@code
+{
+	public PlayerComponent WinningPlayer => GameLogicComponent.GetGameInstance().GameModeComponent.WinningPlayer;
+	public Team WinningTeam => GameLogicComponent.GetGameInstance().GameModeComponent.WinningTeam;
+
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash()
+	{
+		return HashCode.Combine( WinningPlayer, WinningTeam );
+	}
+}

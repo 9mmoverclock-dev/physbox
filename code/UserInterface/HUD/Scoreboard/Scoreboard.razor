@@ -1,0 +1,63 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits Panel
+@namespace Physbox
+
+@if ( Player is null ) return;
+
+<root>
+	<div class="background container">
+		<div class="text server_info" style="font-size: 22px">@ServerDetails</div>
+		<div class="statsHeader">
+			<div class="text stats_header_text" style="position:absolute; right: 283px">Kills</div>
+			<div class="text stats_header_text" style="position:absolute; right: 205px">Deaths</div>
+			<div class="text stats_header_text" style="position:absolute; right: 150px">Ping</div>
+		</div>
+		<div class="container playerContainer">
+			@if ( !GameLogicComponent.UseTeams )
+			{
+				foreach ( var player in Scene.GetAllComponents<PlayerComponent>().OrderByDescending( x => x.Kills ) )
+				{
+					<PlayerScoreboardPanel Player="@player"></PlayerScoreboardPanel>
+				}
+			}
+			else
+			{
+				var teams = Scene.GetAllComponents<PlayerComponent>()
+					.GroupBy( x => x.Team )
+					.Where( x => x.Key != Team.None );
+				foreach ( var team in teams )
+				{
+					<div class="text team"
+					     style="color: @( PhysboxUtilities.GetTeamColor( team.Key ).Hex );">@( GetTeamString( team.Key ) )
+					</div>
+					foreach ( var player in team.OrderByDescending( x => x.Kills ) )
+					{
+						<PlayerScoreboardPanel Player="@player"></PlayerScoreboardPanel>
+					}
+				}
+			}
+
+		</div>
+
+	</div>
+</root>
+
+@code
+{
+	PlayerComponent Player => PlayerComponent.LocalPlayer;
+	public string ServerDetails => $"\"{Networking.ServerName}\" ({Connection.All.Count} / {@Networking.MaxPlayers}) - {GameLogicComponent.GameMode} on {Networking.MapName}";
+
+	public string GetTeamString( Team team )
+	{
+		var suffix = "";
+		var baseString = $"{team} Team";
+		if ( GameLogicComponent.GameMode == GameModes.Dodgeball &&
+		     GameLogicComponent.GetGameInstance().GameModeComponent is DodgeballGameMode gamemode )
+		{
+			suffix += $" - {gamemode.GetLivesRemainingForTeam( team )} Lives Remaining";
+		}
+
+		return baseString += suffix;
+	}
+}

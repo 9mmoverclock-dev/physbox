@@ -1,0 +1,44 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using System;
+@attribute [Title( "Player Nametag" )]
+@attribute [Icon( "info" )]
+@attribute [Group( "Physbox" )]
+@attribute [Tint( EditorTint.Yellow )]
+@inherits PanelComponent
+@namespace Sandbox
+
+@if ( !PhysboxUtilities.IsMainMenuScene() )
+{
+	if ( !IsProxy && !IsBot() ) return;
+}
+
+<root>
+	<div class="background text" style="font-size: 40px; color: @GetTeamColor().Hex">@Name</div>
+</root>
+
+@code
+{
+
+	[Sync] public string Name { get; set; } = !PhysboxUtilities.IsMainMenuScene() ? "Placeholder" : Utility.Steam.PersonaName;
+
+	public bool IsBot()
+	{
+		return Player?.IsBot ?? false;
+	}
+
+	public PlayerComponent Player => GameObject.Parent.Components.Get<PlayerComponent>();
+
+	public Color GetTeamColor()
+	{
+		return GameLogicComponent.UseTeams ? PhysboxUtilities.GetTeamColor( Player.Team ) : Color.White;
+	}
+
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash()
+	{
+		return HashCode.Combine( Name );
+	}
+}

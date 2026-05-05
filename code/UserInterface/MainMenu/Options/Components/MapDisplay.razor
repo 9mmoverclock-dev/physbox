@@ -1,0 +1,70 @@
+@using System.Globalization
+@using System.Threading.Tasks
+@using Sandbox;
+@using Sandbox.Network
+@using Sandbox.UI;
+@inherits Panel
+@namespace Physbox
+<root>
+	<div class="option option_background" @ref="Background">
+		<div class="text option_title" style="bottom: 24px;">
+			@( $"{Map.GetMetadata( "Title" )}" )
+		</div>
+		<div class="text option_title" style="bottom: 4px;">
+			@( $"by {@Map.GetMetadata( "Author" )}" )
+		</div>
+	</div>
+</root>
+
+@code
+{
+	public SceneFile Map { get; set; }
+	public string MapThumbnail;
+	public bool IsMapCompatible;
+
+	Panel Background { get; set; }
+
+	protected override void OnAfterTreeRender( bool firstTime )
+	{
+		if ( !firstTime ) return;
+		if ( !IsMapCompatible )
+		{
+			var borderLength = new Length { Unit = LengthUnit.Pixels, Value = 4 };
+			var borderRadius = new Length { Unit = LengthUnit.Pixels, Value = 12 };
+
+			Style.FilterTint = Color.Gray;
+
+			var colorCode = "#ff5757";
+			var rgb = uint.Parse( colorCode.Replace( "#", "" ), NumberStyles.HexNumber );
+
+			Style.BorderColor = Color.FromRgb( rgb );
+			Style.BorderWidth = borderLength;
+			Style.BorderBottomLeftRadius = borderRadius;
+			Style.BorderBottomRightRadius = borderRadius;
+			Style.BorderTopLeftRadius = borderRadius;
+			Style.BorderTopRightRadius = borderRadius;
+		}
+	}
+
+	public override void Tick()
+	{
+		if ( string.IsNullOrEmpty( MapThumbnail ) )
+		{
+			SetMapThumbnail( Map );
+		}
+	}
+
+	async Task SetMapThumbnail( SceneFile map )
+	{
+		var ident = map.GetMetadata( "PackageIdent" );
+		if ( string.IsNullOrWhiteSpace( ident ) )
+		{
+			MapThumbnail = "";
+			return;
+		}
+
+		var package = await Package.FetchAsync( ident, false );
+		MapThumbnail = package.Thumb;
+		Background.Style.SetBackgroundImageAsync( MapThumbnail );
+	}
+}
